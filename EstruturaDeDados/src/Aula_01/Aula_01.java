@@ -26,25 +26,21 @@ public class Aula_01{
         }
     }
     
-    public static boolean lastDigit(int x, int y){
-        String temp1 = Integer.toString(x);
-        String temp2 = Integer.toString(y);
+    public static boolean lastDigit(int num1, int num2){
+        int mod1 = num1 % 10;
+        int mod2 = num2 % 10;
         
-        int guess1[] = new int[temp1.length()];
-        int last1 = guess1[temp1.length() - 1];
-        int guess2[] = new int[temp2.length()];
-        int last2 = guess2[temp2.length() - 1];
-        if (last1 == last2){
+        if (mod1 == mod2){ 
             return true;
-        } 
+        }
         else{
             return false;
         }
     } 
             
     public static void main(String args[]){
-        //Aleatorio();
-        boolean oi = lastDigit(22,372);
+        Aleatorio();
+        boolean oi = lastDigit(22,32);
         System.out.println(oi);
     }
 }
