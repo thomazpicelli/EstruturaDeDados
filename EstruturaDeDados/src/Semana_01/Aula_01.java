@@ -1,11 +1,5 @@
-package Aula_01;
+package Semana_01;
 
-import java.util.Random;
-
-/**
- *
- * @author 31452760
- */
 public class Aula_01{
     
     public static void Aleatorio(){
@@ -26,25 +20,27 @@ public class Aula_01{
         }
     }
     
-    public static boolean lastDigit(int x, int y){
-        String temp1 = Integer.toString(x);
-        String temp2 = Integer.toString(y);
+    public static boolean lastDigit(int num1, int num2){
+        int mod1 = 0;
+        int mod2 = 0;
         
-        int guess1[] = new int[temp1.length()];
-        int last1 = guess1[temp1.length() - 1];
-        int guess2[] = new int[temp2.length()];
-        int last2 = guess2[temp2.length() - 1];
-        if (last1 == last2){
+        while(num1<9){
+            mod1 = num1 % 10;
+        }
+        while(num2<9){
+            mod2 = num2 % 10;
+        }
+        if (mod1 == mod2){ 
             return true;
-        } 
+        }
         else{
             return false;
         }
     } 
             
     public static void main(String args[]){
-        //Aleatorio();
-        boolean oi = lastDigit(22,372);
-        System.out.println(oi);
+        Aleatorio();
+        boolean result = lastDigit(22,32);
+        System.out.println(result);
     }
 }
