@@ -16,7 +16,7 @@ public class Aula_02 {
     public static int ex4(int n){
         int S1 = 0;
         for(int i = 1; i <= n/2; i++){
-            for(int j = 1; i <= n*n; i++){
+            for(int j = 1; j <= n*n; j++){
                 S1++;
             }
         }
