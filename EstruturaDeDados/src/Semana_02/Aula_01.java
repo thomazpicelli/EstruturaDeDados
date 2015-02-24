@@ -3,7 +3,7 @@ package Semana_02;
 public class Aula_01 {
     
     public static void main(String args[]){
-        int[] vetor = new int[500];
+        int[] vetor = new int[5000];
         
         preencheVetor(vetor);
         
@@ -14,7 +14,7 @@ public class Aula_01 {
         exibe(vetor);
     }
     
-    public static void preencheVetor(int[] vet){
+    public static void preencheVetor(int[] vet){        
         //CASO MEDIO
         for (int i = 0; i < vet.length; i++) {
             vet[i] = (int) (5000*Math.random());
@@ -27,8 +27,7 @@ public class Aula_01 {
         
         //MELHOR CASO
         for (int i = 0; i < vet.length; i++) {
-            int w = vet[i];
-            
+            int w = vet[i];  
         }
         */
     }
