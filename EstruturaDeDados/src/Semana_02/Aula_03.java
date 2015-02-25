@@ -75,4 +75,5 @@ public class Aula_03 {
             return x;
         return 2 * strange(x/2);
     }
+    //teste
 }
