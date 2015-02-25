@@ -9,6 +9,12 @@ public class Aula_03 {
         int i = digitos(150000);
         int j = digitosR(150000);
         System.out.println(i + " " + j);
+        //int f = f(8,9);
+        //int g = g(3);
+        //System.out.println(f + " " + g);
+        int f = f(6);
+        int s = strange(3);
+        System.out.println(s);
     }
     
     public static int somanum(int n){
@@ -36,5 +42,37 @@ public class Aula_03 {
         else{
             return 1 + digitosR(n/10);
         }
+    }
+    /*
+    static int f(int x, int y) {
+        if(x == 0)
+            return y;
+        else
+            return f(x - 1, y + 1);
+    }
+    static int g(int num) {
+        if( num <= 1 )
+            return 1;
+        else
+            return 3*g( num-1 ) + g( num-2 );
+    }
+    */
+    static int f( int num ) {
+        if ( num <= 2 )
+            return num;
+        else
+            return num*g(num-1);
+    }
+    static int g( int num ) {
+        if ( num <= 2 )
+            return num;
+        else
+            return (num-1)*f(num+1);
+    }
+    
+    static int strange(int x){
+        if ((x % 2) != 0)
+            return x;
+        return 2 * strange(x/2);
     }
 }
