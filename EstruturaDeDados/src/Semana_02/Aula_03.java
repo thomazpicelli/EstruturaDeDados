@@ -12,9 +12,11 @@ public class Aula_03 {
         //int f = f(8,9);
         //int g = g(3);
         //System.out.println(f + " " + g);
-        int f = f(6);
-        int s = strange(3);
-        System.out.println(s);
+        //int f = f(6);
+        //int s = strange(3);
+        //System.out.println(s);
+        int a = a(6,2);
+        System.out.println(a);
     }
     
     public static int somanum(int n){
@@ -76,4 +78,21 @@ public class Aula_03 {
         return 2 * strange(x/2);
     }
     //teste
+    public static int a(int a, int b){
+        int tot = 0;
+        if (a > b){
+            for (int i = a; i > b; i--) {
+                tot += i;
+                System.out.println(tot);
+                return a(i-1,b); 
+            }
+        }
+        else{
+            for (int j = b; j <= a; j--){
+                tot += j; 
+                return a(a,j-1);
+            }
+        }
+        return tot;
+    }
 }
