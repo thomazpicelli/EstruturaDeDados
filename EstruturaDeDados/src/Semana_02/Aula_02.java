@@ -7,7 +7,7 @@ public class Aula_02 {
     public static void main(String args[]){
         int[] vetor = new int[500];
         
-        preencheVetor(vetor);
+        preencheMedio(vetor);
         
         insert(vetor);
         exibe(vetor);
@@ -20,22 +20,22 @@ public class Aula_02 {
         System.out.println(cont2);
     }
     
-    public static void preencheVetor(int[] vet){        
-        //CASO MEDIO
+    public static void preencheMedio(int[] vet){        
         for (int i = 0; i < vet.length; i++) {
             vet[i] = (int) (5000*Math.random());
         }
-        /*
-        //PIOR CASO
+    }
+    
+    public static void preenchePior(int[] vet){    
         for (int i = vet.length; i >0; i--) {
             vet[vet.length-i] = i;
         }
-        
-        //MELHOR CASO
+    }
+    
+    public static void preencheMelhor(int[] vet){    
         for (int i = 0; i < vet.length; i++) {
             int w = vet[i];  
         }
-        */
     }
     
     public static int buscaLinear(int []vet, int x){
