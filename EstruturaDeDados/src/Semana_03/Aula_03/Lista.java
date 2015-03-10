@@ -5,8 +5,8 @@ package Semana_03.Aula_03;
  * @author thomazpicelli
  */
 public class Lista {
-    Vendedor[] lista;
-    int qtde;
+    public Vendedor[] lista;
+    public int qtde;
 
     public Lista(int qtde) {
         this.lista = new Vendedor[qtde];
@@ -34,9 +34,9 @@ public class Lista {
             throw new Exception("Lista está vazia");
         }
         Vendedor consulta = null;
-        for (Vendedor lista1 : lista) {
-            if(lista1.getCodigo() == codigo){
-                consulta = lista1;
+        for (int i = 0; i < qtde; i++) {
+            if(lista[i].getCodigo() == codigo){
+                consulta = lista[i];
             }
         }
         return consulta;
@@ -51,21 +51,68 @@ public class Lista {
                 throw new Exception("Elemento já existe na lista");
             }
         }
-        lista[qtde-1] = novo;
+        lista[qtde] = novo;
         this.qtde++;
     }
     
-    public void removeElemento(int codigo) throws Exception{
+    public int consultaPosicao(int codigo) throws Exception{
         if(verVazia()){
             throw new Exception("Lista está vazia");
         }
-        if(consultaVendedor(codigo) == null){
-            throw new Exception("O elemento que deseja remover não está na lista");
+        for (int i = 0; i < qtde; i++) {
+            if(codigo == lista[i].getCodigo()) return i;
+        }
+        return -1;
+    }    
+    
+    public void removeElemento(int codigo) throws Exception{
+        if(verVazia()){
+            throw new Exception("Lista está vazia!");
+        }
+        int posi = consultaPosicao(codigo);
+        if(posi == -1) throw new Exception("O elemento que deseja remover não está na lista!");
+        else{
+            for (int i = posi; i < qtde; i++) {
+                lista[i] = lista[i+1];
+            }
+            this.qtde--;
         }
     }
     
-    public void alterarVendedor(int codigo, Vendedor novo){
-        
+    public void alterarVendedor(int codigo, Vendedor novo) throws Exception{
+        if(verVazia()){
+            throw new Exception("Lista está vazia!");
+        }
+        int posi = consultaPosicao(codigo);
+        if(posi == -1) throw new Exception("Elemento que deseja alterar não está na lista!");
+        else{
+            lista[posi] = novo;
+        }    
+    }
+    
+    public Vendedor[] ordenaNome(Vendedor[] lista) throws Exception{  
+        if(verVazia()){
+            throw new Exception("Lista está vazia!");
+        }
+        Vendedor aux = null; int j;
+        for (int i=1; i< qtde ; i++){
+            aux = lista[i];
+            for(j=i-1; j>=0 && aux.getNome().compareTo(lista[j].getNome())<0; j--){
+                lista[j+1] = lista[j];
+            }
+            lista[j+1] = aux;
+	}
+        return lista;  
+    }
+    
+    public void mostraLista() throws Exception{
+        if(verVazia()){
+            throw new Exception("Lista está vazia!");
+        }
+        lista = ordenaNome(lista);
+        for (Vendedor lista1 : lista) {
+                System.out.println("Vendedor: " + lista1.getNome() + ", " + lista1.getCodigo() + ", " + lista1.getVenda() + ".");
+        }
     }
     
     public Vendedor verMaior() throws Exception{
@@ -121,16 +168,4 @@ public class Lista {
         return soma;
     }
     
-    public void mostraLista() throws Exception{
-        if(verVazia()){
-            throw new Exception("Lista está vazia!");
-        }
-        for (Vendedor lista1 : lista) {
-                System.out.println("Vendedor: " + lista1.getNome() + ", " + lista1.getCodigo() + ", " + lista1.getVenda() + ".");
-        }
-    }
-
-    void insereElemento(int i, String jomar, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
