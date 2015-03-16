@@ -1,15 +1,14 @@
 package Semana_05;
 
 import java.util.Scanner;
-import java.util.Stack;
 
 /**
  * @see Utilizando pilhas para resolver expressões escritas no formato RPN(Reverse Polish Notation)
  * @author thomazpicelli
  */
 public class Aula_01 {
-    public static void main(String[] args) {
-        Stack pilha = new Stack();
+    public static void main(String[] args) throws Exception {
+        Stack pilha = new Stack(10);
         Scanner sc = new Scanner(System.in);
         String texto = sc.nextLine();
         String[] quebra = texto.split(" ");
@@ -18,9 +17,13 @@ public class Aula_01 {
                 pilha.push(Integer.parseInt(quebra[i]));
             }
             else{
-                int s1 = (int)pilha.lastElement();
+                if(pilha.size() < 2){
+                    System.out.println("São necessários 2 numeros para executar a operação!");
+                    break;
+                }
+                int s1 = pilha.top();
                 pilha.pop();
-                int s2 = (int)pilha.lastElement();
+                int s2 = pilha.top();
                 pilha.pop();
                 int result = 0;
                 switch (quebra[i]){
@@ -38,6 +41,6 @@ public class Aula_01 {
                 pilha.push(result);
             }
         }
-        System.out.println("Resultado: " + pilha.lastElement());
+        System.out.println("Resultado: " + pilha.top());
     }
 }
