@@ -1,4 +1,4 @@
-package Semana_05.Aula_02;
+package Semana_05;
 
 import java.util.Scanner;
 import java.util.Stack;
@@ -7,7 +7,7 @@ import java.util.Stack;
  *
  * @author thomazpicelli
  */
-public class conversao {
+public class Aula_02{
     public static void main(String[] args) {
         int num = 0, resto=0;
         Stack<Integer> pilha = new Stack<Integer>();
