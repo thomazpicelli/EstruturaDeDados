@@ -1,7 +1,5 @@
 package Semana_07;
 
-import java.util.LinkedList;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -32,38 +30,39 @@ public class Aula_01 {
             if(!existe)System.out.println("NÃO EXISTE SOLDADO COM ESTE NOME!!!");
         }
         int sorteio = (int)(10*Math.random());
-        sorteio = 3;
-        System.out.println(sorteio);
+        System.out.println("Matar de " + sorteio + " em " + sorteio);
         //processo de eliminação
         int cont = 0;
         int qntd = 10;
-        while(10-cont > 2){
+        while(qntd > 1){
+            System.out.println("começa pela posicao " + começa);
             int posicao = começa;
             for (int i = 1; i <= sorteio; i++) {
-                if(posicao == 10 - cont)
+                if(posicao == qntd-1)
                     posicao = 0;
                 else
                     posicao++;
                 System.out.println("p " + posicao);
                 System.out.println("i " + i);
                 if(i == sorteio){
-                    System.out.println(fila[posicao] + " vai morrer na posicao" + posicao);
-                    for (int j = posicao; j <= qntd-cont; j++) {
+                    System.out.println(fila[posicao] + " vai morrer na posicao " + posicao);
+                    for (int j = posicao; j < qntd-1; j++) {
                         fila[j] = fila[j+1];
-                        System.out.println("JOTAAA " + j + "recebeu "+ j+1);
+                        String a = fila[j+1];
+                        System.out.println("posicao " + j + " recebeu "+ a);
                     }
-                    começa = posicao+1;
-                    System.out.println("começa" + começa);
-                    System.out.println("CONT "+ cont);
+                    cont++; qntd--;
+                    System.out.println(cont + " soldados já foram mortos");
+                    System.out.println("Restam " + qntd);
+                    for (int k = 0; k < qntd; k++) {
+                        System.out.print(fila[k] + ", ");
+                    }
+                    System.out.println("");
+                    if(posicao == qntd)começa = 0;
+                    else começa = posicao+1;
                 }
             }
-            cont++;
-            qntd--;
-            for (int i = 0; i < fila.length; i++) {
-                System.out.print(fila[i] + ", ");
-                
-            }
-            System.out.println("");
         }
+        System.out.println("SOBREVIVEU " + fila[0]);
     }
 }
