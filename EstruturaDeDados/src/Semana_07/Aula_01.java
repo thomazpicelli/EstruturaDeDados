@@ -33,7 +33,6 @@ public class Aula_01 {
         while(sorteio==0) sorteio = (int)(10*Math.random());
         System.out.println("Os soldados serão mortos de " + sorteio + " em " + sorteio);
         //processo de eliminação
-        int cont = 0;
         int qntd = 10;
         int posicao = começa;
         while(qntd > 1){
@@ -52,8 +51,8 @@ public class Aula_01 {
                         fila[j] = fila[j+1];
                         System.out.println("posicao " + j + " recebeu "+ fila[j+1]);
                     }
-                    cont++; qntd--;
-                    System.out.println(cont + " soldados já foram mortos");
+                    qntd--;
+                    System.out.println(10 - qntd + " soldados já foram mortos");
                     System.out.println("Restam " + qntd);
                     for (int k = 0; k < qntd; k++) {
                         System.out.print(fila[k] + ", ");
@@ -62,6 +61,6 @@ public class Aula_01 {
                 }
             }
         }
-        System.out.println("SOBREVIVEU " + fila[0]);
+        System.out.println("O SOLDADO " + fila[0] + " SOBREVIVEU !!!");
     }
 }
