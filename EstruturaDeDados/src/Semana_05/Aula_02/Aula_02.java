@@ -1,4 +1,4 @@
-package Semana_05;
+package Semana_05.Aula_02;
 
 import java.util.Scanner;
 import java.util.Stack;
