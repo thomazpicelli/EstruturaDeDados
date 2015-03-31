@@ -37,7 +37,7 @@ public class Aula_01 {
         int qntd = 10;
         int posicao = começa;
         while(qntd > 1){
-            System.out.println("começa a contagem pela posicao " + começa);
+            System.out.println("começa a contagem pela posicao " + posicao);
             for (int i = 1; i <= sorteio; i++) {
                 if(posicao >= qntd-1)
                     posicao = 0;
@@ -59,8 +59,6 @@ public class Aula_01 {
                         System.out.print(fila[k] + ", ");
                     }
                     System.out.println("");
-                    if(posicao+1 == qntd)começa = 0;
-                    else começa = posicao+1;
                 }
             }
         }
