@@ -29,27 +29,28 @@ public class Aula_01 {
             }
             if(!existe)System.out.println("NÃO EXISTE SOLDADO COM ESTE NOME!!!");
         }
-        int sorteio = (int)(10*Math.random());
-        System.out.println("Matar de " + sorteio + " em " + sorteio);
+        int sorteio = 0;
+        while(sorteio==0) sorteio = (int)(10*Math.random());
+        System.out.println("Os soldados serão mortos de " + sorteio + " em " + sorteio);
         //processo de eliminação
         int cont = 0;
         int qntd = 10;
+        int posicao = começa;
         while(qntd > 1){
-            System.out.println("começa pela posicao " + começa);
-            int posicao = começa;
+            System.out.println("começa a contagem pela posicao " + começa);
             for (int i = 1; i <= sorteio; i++) {
-                if(posicao == qntd-1)
+                if(posicao >= qntd-1)
                     posicao = 0;
                 else
                     posicao++;
                 System.out.println("p " + posicao);
                 System.out.println("i " + i);
+                System.out.println("----------");
                 if(i == sorteio){
                     System.out.println(fila[posicao] + " vai morrer na posicao " + posicao);
                     for (int j = posicao; j < qntd-1; j++) {
                         fila[j] = fila[j+1];
-                        String a = fila[j+1];
-                        System.out.println("posicao " + j + " recebeu "+ a);
+                        System.out.println("posicao " + j + " recebeu "+ fila[j+1]);
                     }
                     cont++; qntd--;
                     System.out.println(cont + " soldados já foram mortos");
@@ -58,7 +59,7 @@ public class Aula_01 {
                         System.out.print(fila[k] + ", ");
                     }
                     System.out.println("");
-                    if(posicao == qntd)começa = 0;
+                    if(posicao+1 == qntd)começa = 0;
                     else começa = posicao+1;
                 }
             }
