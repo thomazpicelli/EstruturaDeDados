@@ -19,5 +19,16 @@ public class Aula_01 {
         lista.addLast("Peixe");
         System.out.println("Primeiro3: " + lista.first().getNomeAnimal());
         System.out.println("Ultimo3: " + lista.last().getNomeAnimal());
+        lista.mostraLista();
+        try {
+            lista.addAfter("Vitinho", "Zebra");
+            lista.mostraLista();
+            lista.addBefore("Zé", "Gato");
+            lista.mostraLista();
+            lista.remove("Cobra");
+            lista.mostraLista();
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
     }
 }
