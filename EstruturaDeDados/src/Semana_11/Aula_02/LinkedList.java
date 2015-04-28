@@ -1,4 +1,4 @@
-package Semana_11;
+package Semana_11.Aula_02;
 
 /**
  *
@@ -23,7 +23,7 @@ public class LinkedList <E> {
     }
     public Node first() throws Exception{
         if(isEmpty()) throw new Exception("Não existe primeiro");
-        return this.header;
+        return header;
     }
     public Node last(){
         return trailer;
@@ -101,15 +101,17 @@ public class LinkedList <E> {
             header.getNext().setPrev(null);
             header = header.getNext();
         }
-        if(trailer.getElemento().equals(remove)){
-            trailer.getPrev().setNext(null);
-            trailer = trailer.getPrev();
-        }
         else{
-            Node node;
-            for (node = header; !(node.getElemento().equals(remove)); node = node.getNext());
-            node.getPrev().setNext(node.getNext());
-            node.getNext().setPrev(node.getPrev());
+            if(trailer.getElemento().equals(remove)){
+                trailer.getPrev().setNext(null);
+                trailer = trailer.getPrev();
+            }
+            else{
+                Node node;
+                for (node = header; !(node.getElemento().equals(remove)); node = node.getNext());
+                node.getPrev().setNext(node.getNext());
+                node.getNext().setPrev(node.getPrev());
+            }
         }
         size--;
     }

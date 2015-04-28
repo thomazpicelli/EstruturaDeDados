@@ -1,4 +1,4 @@
-package Semana_11;
+package Semana_11.Aula_02;
 
 /**
  *

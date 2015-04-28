@@ -1,4 +1,4 @@
-package Semana_11;
+package Semana_11.Aula_01;
 
 /**
  * @see Pilha usando lista ligada generica
